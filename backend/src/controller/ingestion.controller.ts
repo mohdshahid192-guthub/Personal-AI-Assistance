@@ -3,9 +3,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import { ingestDocument, ingestPDF } from "../services/ingestion.service.js";
 import { Request, Response } from "express";
 import { asyncHandler } from "../utils/asyncHandler.js";
-import { error } from "node:console";
 import fs from "fs"
-import { unlinkSync } from "node:fs";
 
 interface addDocumentBody {
   title: string

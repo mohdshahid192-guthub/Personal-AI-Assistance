@@ -1,24 +1,27 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faBars, faCircleUser} from '@fortawesome/free-solid-svg-icons'
-import { useState } from 'react';
+import { faCircleUser} from '@fortawesome/free-solid-svg-icons'
 import WhiteBtn from '../Buttons/WhiteBtn';
+import { useAppDispatch, useAppSelector } from '../../Store/hooks';
+import { login, logout } from '../../Store/authSlice';
+
 export default function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn)
+
+const dispatch = useAppDispatch()
 
   return (
-    <nav className="flex justify-between items-center bg-white  h-16 text-2xl">
-      <div className='w-[100px] md:w-[150px] flex items-center justify-center'>
-         <WhiteBtn size='small' variant='withoutBg'>
-        <FontAwesomeIcon icon={faBars} className='text-2xl '/>
-       </WhiteBtn>
-      </div>
+    <nav className="flex justify-between items-center h-16 px-4 text-2xl bg-slate-900 text-white">
+     
+     <h1 className='text-lg font-bold '>
+      Shareen AI
+     </h1>
        
-      {isLoggedIn && (<button className='pl-4'><FontAwesomeIcon icon={faCircleUser} className='text-3xl'/></button>)}
+      {isLoggedIn && (<button className='' ><FontAwesomeIcon icon={faCircleUser} className='text-3xl'/></button>)}
 
       {!isLoggedIn && (
-        <div className='flex px-8 gap-2'>
+        <div className='flex  gap-2'>
     <WhiteBtn size='small' variant='withoutBg'>Login</WhiteBtn>
-          <WhiteBtn size='small' variant='withBg'>Sign Up</WhiteBtn>
+          <WhiteBtn size='small' variant='withBg' >Sign Up</WhiteBtn>
         </div>
     )}
     </nav>

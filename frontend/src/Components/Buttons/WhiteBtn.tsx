@@ -16,7 +16,7 @@ const sizeStyles = {
 }
 
 const variants = {
-  withBg: "border-2 bg-black text-white rounded-xl hover:bg-white hover:text-black",
+  withBg: "border-2 bg-white text-black rounded-xl hover:bg-transparent hover:text-white",
   withoutBg: "border-none rounded-xl hover:bg-gray-300 hover:text-black",
   onlyBorder: "border-2 rounded-xl hover:bg-black hover:text-white"
 
